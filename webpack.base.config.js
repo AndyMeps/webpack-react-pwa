@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
@@ -43,5 +44,6 @@ module.exports = {
       clientsClaim: true,
       skipWaiting: true,
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 };

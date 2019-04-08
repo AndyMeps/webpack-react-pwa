@@ -1,17 +1,30 @@
 // @flow
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
+import configureStore from './configureStore';
 import App from './components/App';
 import pwa from './pwa';
 
 pwa.registerServiceWorker();
 
-const element = document.getElementById('app');
+const store = configureStore();
 
-if (element) {
-  ReactDOM.render(
-    <App />,
+const renderApp = () => {
+  const element = document.getElementById('app');
+  if (!element) return;
+
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
     element,
   );
+};
+
+if (process.env.NODE_ENV !== 'production' && module.hot) {
+  module.hot.accept('./components/App', renderApp);
 }
+
+renderApp();
