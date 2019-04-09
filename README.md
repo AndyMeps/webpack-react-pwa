@@ -1,6 +1,6 @@
 # Webpack React PWA
 
-This project is designed as a barebones jumping-off point for new React projects. It provides the fundamental tools need without unnecessary bloat - just the good stuff.
+This project is designed as a barebones jumping-off point for new React projects; it provides the fundamental tools needed without unnecessary bloat - just the good stuff.
 
 ## Build Infrastructure
 
