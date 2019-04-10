@@ -3,8 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: path.resolve('./src/index.jsx'),
@@ -29,6 +29,12 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.hbs',
+      title: 'Webpack React PWA',
+      meta: {
+        charset: 'UTF-8',
+        viewport: 'width=device-width, initial-scale=1.0',
+        description: 'React with Webpack and PWA features.',
+      },
     }),
     new WebpackPwaManifest({
       inject: true,
@@ -36,11 +42,12 @@ module.exports = {
       short_name: 'WRP',
       description: 'React with Webpack and PWA features.',
       background_color: '#ffffff',
+      theme_color: '#317EFB',
       crossorigin: null,
       icons: [
       ],
     }),
-    new WorkboxPlugin.GenerateSW({
+    new GenerateSW({
       clientsClaim: true,
       skipWaiting: true,
     }),
