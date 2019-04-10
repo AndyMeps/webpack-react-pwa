@@ -1,13 +1,15 @@
 // @flow
-export type TodoState = ?string;
+export type TodoState = {|
+  +value: ?string,
+|};
 
-type TodoSetAction = {
+type TodoSetAction = {|
   type: 'TODO_SET',
   payload: string,
-};
+|};
 
-type TodoUnusedAction = {
+type TodoUnusedAction = {|
   type: 'TODO_UNUSED',
-};
+|};
 
 export type TodoAction = TodoSetAction | TodoUnusedAction;

@@ -2,7 +2,9 @@
 import type { State } from './types';
 
 const initialState: State = {
-  todo: null,
+  todo: {
+    value: null,
+  },
 };
 
 export default initialState;
