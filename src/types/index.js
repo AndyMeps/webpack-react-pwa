@@ -5,9 +5,9 @@ import type { TodoState, TodoAction } from './todo';
 
 export type ReduxInitAction = { type: '@@INIT' };
 
-export type State = {
+export type State = {|
   +todo: TodoState
-};
+|};
 
 export type Action = { type: string }
   & (
