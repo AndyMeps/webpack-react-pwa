@@ -1,18 +1,18 @@
 // @flow
 import type { Store as ReduxStore, Dispatch as ReduxDispatch } from 'redux';
-
 import type { TodoState, TodoAction } from './todo';
 
-export type ReduxInitAction = { type: '@@INIT' };
+export type ReduxInitAction = {| type: '@@INIT' |};
 
 export type State = {|
   +todo: TodoState
 |};
 
-export type Action = { type: string }
+export type Action = {| type: string |}
   & (
-    TodoAction
-  | ReduxInitAction);
+    ReduxInitAction
+    | TodoAction
+  );
 
 export type Dispatch = ReduxDispatch<Action>;
 

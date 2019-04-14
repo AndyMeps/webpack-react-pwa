@@ -21,6 +21,10 @@ module.exports = {
     'flowtype',
   ],
   rules: {
+    'react/default-props-match-prop-types': [
+      'error',
+      { 'allowRequiredDefaults': true }
+    ],
     'flowtype/boolean-style': [
       2,
       'boolean'
